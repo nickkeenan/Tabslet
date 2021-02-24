@@ -138,7 +138,7 @@
 
           i = ++i % elements.length; // wrap around
 
-          $this.opts.mouseevent == 'hover' ? elements.eq(i).trigger('mouseover') : elements.eq(i).click();
+          $this.opts.mouseevent == 'hover' ? elements.eq(i).trigger('mouseover') : elements.eq(i).trigger('click');
 
           if ($this.opts.autorotate) {
 
@@ -200,15 +200,15 @@
 
           if (direction == 'backward') i = --i % elements.length; // wrap around
 
-          elements.eq(i).click();
+          elements.eq(i).trigger('click');
 
         }
 
-        $this.find(options.controls.next).click(function() {
+        $this.find(options.controls.next).on("click",function() {
           move('forward');
         });
 
-        $this.find(options.controls.prev).click(function() {
+        $this.find(options.controls.prev).on("click",function() {
           move('backward');
         });
 
